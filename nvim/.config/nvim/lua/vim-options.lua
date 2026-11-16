@@ -7,6 +7,7 @@ vim.g.mapleader = " "
 
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
