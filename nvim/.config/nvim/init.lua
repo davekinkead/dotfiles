@@ -2,7 +2,11 @@ vim.opt.expandtab = true
 vim.opt.tabstop=2
 vim.opt.softtabstop=2
 vim.opt.shiftwidth=2
+vim.opt.number = true
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -37,6 +41,14 @@ local plugins = {
     config = function()
       require("nvim-treesitter").install({ "ruby", "javascript", "typescript", "lua" })
     end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup()
+      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+    end
   }
 }
 
@@ -48,6 +60,9 @@ require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
 
 local builtin = require('telescope.builtin')
+
+vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==", { silent = true })
 vim.keymap.set('n', '<leader>fg', function()
   builtin.live_grep({ additional_args = { "--hidden", "--glob", "!.git/" } })
 end, {})
