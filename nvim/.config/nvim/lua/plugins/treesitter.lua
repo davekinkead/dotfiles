@@ -1,7 +1,5 @@
 return {
   {
-    -- The `main` branch is the nvim-treesitter rewrite for Neovim 0.12+; the old
-    -- `master` branch (with `nvim-treesitter.configs`) is frozen and breaks on 0.12.
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     lazy = false,
@@ -24,8 +22,6 @@ return {
         "regex",
       })
 
-      -- Replaces the old `auto_install` + `highlight` options: install a missing
-      -- parser on first use, then start highlighting for the buffer.
       local available = {}
       for _, lang in ipairs(ts.get_available()) do
         available[lang] = true
