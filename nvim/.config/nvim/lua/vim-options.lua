@@ -9,12 +9,13 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set("n", "<A-down>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-up>", ":m .-2<CR>==")
+
+vim.keymap.set("i", "<C-Left>", "<C-o>0")
+vim.keymap.set("i", "<C-Right>", "<C-o>$")
+vim.keymap.set("i", "<C-Up>", "<C-o>gg")
+vim.keymap.set("i", "<C-Down>", "<C-o>G")
 
 vim.wo.number = true
